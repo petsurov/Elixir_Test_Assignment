@@ -8,6 +8,16 @@ To start your Phoenix server:
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
+Application features:
+
+1) Registration/authorization using e-mail and password.
+2) Password reset function.
+
+The buttons for using the authorization/registration functions are located on the main page, in the upper right corner.
+
+To check email locally, use the path [`localhost:4000/dev/mailbox/`](http://localhost:4000/dev/mailbox/).
+
+
 Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
 
 ## Learn more

@@ -17,17 +17,24 @@ config :test_assignment, TestAssignmentWeb.Endpoint,
   pubsub_server: TestAssignment.PubSub,
   live_view: [signing_salt: "O5euuJfq"]
 
+config :test_assignment, :pow,
+  user: TestAssignment.Users.User,
+  repo: TestAssignment.Repo,
+  web_module: TestAssignmentWeb,
+  extensions: [PowResetPassword],
+  controller_callbacks: Pow.Extension.Phoenix.ControllerCallbacks,
+  mailer_backend: TestAssignmentWeb.PowMailer
+
 # Configures the mailer
+config :test_assignment, TestAssignmentWeb.PowMailer,
+  adapter: Swoosh.Adapters.Sendgrid,
+  api_key: "SG.x.x"
 #
 # By default it uses the "Local" adapter which stores the emails
 # locally. You can see the emails in your browser, at "/dev/mailbox".
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :test_assignment, TestAssignment.Mailer, adapter: Swoosh.Adapters.Local
-
-# Swoosh API client is needed for adapters other than SMTP.
-config :swoosh, :api_client, false
 
 # Configure esbuild (the version is required)
 config :esbuild,

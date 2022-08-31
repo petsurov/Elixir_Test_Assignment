@@ -3,13 +3,15 @@ import Config
 # Configure your database
 config :test_assignment, TestAssignment.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "393126432df",
   hostname: "localhost",
   database: "test_assignment_dev",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
+
+config :test_assignment, TestAssignmentWeb.PowMailer, adapter: Swoosh.Adapters.Local
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
